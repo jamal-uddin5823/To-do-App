@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Task</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <div class="input-form">
+        <form action="submit">
+            <label for="title">
+                Title
+                <input type="text" name="title">
+            </label>
+            <br>
+            <label for="date">
+                Date
+                <input type="date" name="date">
+            </label>
+            <br>
+            <label for="description">
+                Description
+                <textarea name="description" cols="20" rows="10"></textarea>
+            </label>
+            <br>
+            <p id="msg"></p>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <script src="form.js"></script>
+</body>
+</html>
