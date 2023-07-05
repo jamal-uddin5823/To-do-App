@@ -1,4 +1,4 @@
-const taskList = [];
+let taskList = [];
 window.card = null;
 const list = document.querySelector('.task-list');
 
@@ -44,24 +44,46 @@ function editTask(editIcon) {
     const date = description.previousElementSibling.querySelector('.task-date');
     
     window.card = {id,
-        title:title.innerHTML,
+        text:title.innerHTML,
         date: date.innerHTML,
         description: description.innerHTML
     };
-    createPopupWin('/form.html','Edit Task');
+    createPopupWin('../html/form.html','Edit Task');
     
     
 }
 
 //delete
 function deleteTask(deleteIcon) {
+    const card = deleteIcon.parentElement;
+    const value = {
+        title: card.querySelector('.task-title').innerHTML,
+        date: card.querySelector('.task-date').innerHTML,
+        description: card.querySelector('.task-desc').innerHTML
+    };
+
+    //remove task from list
+    (function (object) {
+        taskList = taskList.filter((item) => {
+          // Check if the values of the current object match the provided object
+          for (const key in object) {
+            if (object.hasOwnProperty(key) && item.hasOwnProperty(key)) {
+              if (object[key] !== item[key]) {
+                return true; // Keep the object if values don't match
+              }
+            }
+          }
+          return false; // Remove the object if all values match
+        });
+    })(value); 
+
     deleteIcon.parentElement.remove();
 }
 
 
 const addButton = document.getElementById('new-task');
 addButton.addEventListener('click',()=>{
-    createPopupWin('/form.html','Add New Task');
+    createPopupWin('../html/form.html','Add New Task');
 })
 
 
