@@ -48,7 +48,7 @@ function editTask(editIcon) {
         date: date.innerHTML,
         description: description.innerHTML
     };
-    createPopupWin('../html/form.html','Edit Task');
+    createPopupWin('../form.html','Edit Task');
     
     
 }
@@ -83,7 +83,7 @@ function deleteTask(deleteIcon) {
 
 const addButton = document.getElementById('new-task');
 addButton.addEventListener('click',()=>{
-    createPopupWin('../html/form.html','Add New Task');
+    createPopupWin('../form.html','Add New Task');
 })
 
 
