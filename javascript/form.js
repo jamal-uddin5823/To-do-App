@@ -6,7 +6,7 @@ const msg = document.getElementById('msg');
 
 const card = window.opener.card;
 if(card) {
-    titleElement.value = card.title;
+    titleElement.value = card.text;
     dateElement.value = card.date;
     descriptElement.value = card.description;
 }
@@ -39,7 +39,7 @@ form.addEventListener('submit',(event)=> {
         } else {
             value = 
             window.opener.postEditedTask({id: card.id,
-                                        title: titleElement.value,
+                                        text: titleElement.value,
                                         date: dateElement.value,
                                         description: descriptElement.value});
             window.opener.card = null;

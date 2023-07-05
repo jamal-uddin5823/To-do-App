@@ -18,13 +18,13 @@ window.addTask = (newTask) => {
     taskList.push(newTask);
     list.innerHTML= taskList.map(({text,date,description},index)=> {
         return `<div id="${index}" class="task">
-        <section class="title-date">
-        <p class="task-title">${text}</p>
-        <p class="task-date">${date}</p>
-        </section>
-        <p class="task-desc">${description}</p>
-        <i onclick="editTask(this)" class="fas fa-edit"></i>
-        <i onclick="deleteTask(this)" class="fas fa-trash-alt"></i>
+            <section class="title-date">
+                <p class="task-title">${text}</p>
+                <p class="task-date">${date}</p>
+            </section>
+            <p class="task-desc">${description}</p>
+            <i onclick="editTask(this)" class="fas fa-edit"></i>
+            <i onclick="deleteTask(this)" class="fas fa-trash-alt"></i>
         </div>`
     });
 }
@@ -43,8 +43,9 @@ function editTask(editIcon) {
     const title = description.previousElementSibling.querySelector('.task-title');
     const date = description.previousElementSibling.querySelector('.task-date');
     
-    window.card = {id,
-        text:title.innerHTML,
+    window.card = {
+        id,
+        text: title.innerHTML,
         date: date.innerHTML,
         description: description.innerHTML
     };
@@ -57,7 +58,7 @@ function editTask(editIcon) {
 function deleteTask(deleteIcon) {
     const card = deleteIcon.parentElement;
     const value = {
-        title: card.querySelector('.task-title').innerHTML,
+        text: card.querySelector('.task-title').innerHTML,
         date: card.querySelector('.task-date').innerHTML,
         description: card.querySelector('.task-desc').innerHTML
     };
